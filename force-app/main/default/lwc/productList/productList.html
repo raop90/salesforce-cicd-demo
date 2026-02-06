@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Products">
+        <div class="slds-grid slds-wrap">
+            <template if:true={products}>
+                <template for:each={products} for:item="product">
+                    <div key={product.Id} class="slds-col slds-size_1-of-3 slds-p-around_small">
+                        <div class="slds-box slds-text-align_center">
+                            <img src={product.Image_URL__c} alt="Product Image" class="product-image"/>
+                            <h2 class="slds-text-heading_medium">{product.Name}</h2>
+                            <p class="slds-text-title">Price: {product.Price__c}</p>
+                            <div class="slds-m-top_medium">
+                                <lightning-button label="Add to Cart" data-id={product.Id} onclick={handleAddToCart}></lightning-button>
+                                <lightning-button label="Wishlist" data-id={product.Id} onclick={handleAddToWishlist} variant="neutral"></lightning-button>
+                                <lightning-button label="Buy Now" data-id={product.Id} onclick={handleBuyNow} variant="brand"></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:false={products}>
+                <p class="slds-text-align_center slds-text-color_destructive">No products available</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
