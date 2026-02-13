@@ -33,7 +33,8 @@ jobs:
       - name: Deploy Metadata
         run: |
           sf project deploy start \
-            --source-dir force-app \
+            --metadata ApexClass:HelloWorld \
+            --metadata ApexClass:HelloWorldTest \
             --target-org CIOrg \
             --test-level RunLocalTests
 
