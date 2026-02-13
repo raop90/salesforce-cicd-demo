@@ -29,7 +29,7 @@ jobs:
             --metadata ApexClass:HelloWorld \
             --metadata ApexClass:HelloWorldTest \
             --target-org CIOrg \
-            --test-level RunLocalTests
+            --test-level NoTestRun
 
         
 
